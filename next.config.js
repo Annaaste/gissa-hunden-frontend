@@ -3,8 +3,8 @@ const nextConfig = {
   reactStrictMode: true,
   sassOptions: {
     fiber: false,
-    includePaths: [path.join(__dirname, 'styles')],
-    prependData: `@import "src/variables.scss";`,
+    //includePaths: [path.join(__dirname, 'styles')],
+    //prependData: `@import "src/variables.scss";`,
   }
 }
 

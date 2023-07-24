@@ -1,0 +1,12 @@
+.dogForm {
+  max-width: 30rem;
+  padding: 2rem;
+  background-color: #e4edfd;
+  border-radius: 0.8rem;
+
+  input,
+  textarea {
+    display: block;
+    margin: 0.5rem 0 3rem 0;
+  }
+}
