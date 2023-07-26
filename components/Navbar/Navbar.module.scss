@@ -1,0 +1,15 @@
+@import 'variables.scss';
+
+.navbarContainer {
+  padding: 3rem 2rem 3rem 1rem;
+  background-color: $color1;
+  text-align: right;;
+
+  .loginButton {
+    padding: 0.6rem 1.2rem;
+    font-weight: 400;
+    color: $white;
+    border: 2px solid $white;
+    border-radius: 0.5rem;
+  }
+}

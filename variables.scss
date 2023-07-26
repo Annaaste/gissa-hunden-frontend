@@ -1,1 +1,21 @@
-// Här är färger med mera
+//INDIE FLOWER
+@font-face {
+  font-family: 'Indie Flower';
+  src: url('/fonts/IndieFlower-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+}
+
+$color1: #54B4D3;     //main color
+$color2: #6B89C9;     //links
+$black: #191919;
+$white: #FFF;
+$hover: #007F9C;
+
+
+$headerFont: 'Cormorant Garamond';
+$bodyFont: 'Open Sans';
+/*
+$bodyFont: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;*/
+$menuFont: 'Open Sans';
