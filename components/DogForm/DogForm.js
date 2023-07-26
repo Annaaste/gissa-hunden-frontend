@@ -10,6 +10,7 @@ const DogForm = () => {
     breed: '',
     anecdote: '',
     image: 'Skippa denna just nu',
+    alt_text: '',
   })
 
   const handleChange = (e) => {
@@ -80,6 +81,16 @@ const DogForm = () => {
         onChange={handleChange}
         placeholder="x"
         //required
+      />
+      <label htmlFor="alt_text">Beskriv med max 7 ord vad din hund gör på bilden</label>
+      <input
+        type="text"
+        id="alt_text"
+        name="alt_text"
+        value={formData.alt_text}
+        onChange={handleChange}
+        placeholder="En hund ligger i gräset"
+        required
       />
       <button type="submit">Skicka in</button>
     </form>
