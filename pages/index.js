@@ -9,6 +9,7 @@ export default function Home({ dogsData }) {
       {dogsData?.map((dog) => (
         <div className={styles.guessTheBreedContainer} key={dog.id}>
           <p className={styles.dogName}>{dog.dog_name}</p>
+          {/* test */}
           {/* <Image
             src={dog.image}
             width="200"
