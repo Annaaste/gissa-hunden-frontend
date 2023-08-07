@@ -1,45 +1,58 @@
-import axios from 'axios'
-import { useState } from 'react'
-import styles from './DogForm.module.scss'
-
+import axios from 'axios';
+import { useState } from 'react';
+import styles from './DogForm.module.scss';
 
 const DogForm = () => {
-
   const [formData, setFormData] = useState({
     dog_name: '',
     breed: '',
     anecdote: '',
-    image: 'Skippa denna just nu',
+    image: null, // Changed to null, will hold the selected image file
     alt_text: '',
-  })
+  });
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value })
-  }
+    if (e.target.name === 'image') {
+      // For image input, use the selected file instead of the value
+      setFormData({ ...formData, [e.target.name]: e.target.files[0] });
+    } else {
+      setFormData({ ...formData, [e.target.name]: e.target.value });
+    }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Innehållet i formData är: ", formData)
+    console.log('Innehållet i formData är: ', formData);
 
-    // Send the form data to the backend API using Axios
-    axios.post('http://localhost:8080/dogs', formData)
+    // Send the form data to the backend API using FormData (which supports file uploads)
+    const data = new FormData();
+    data.append('dog_name', formData.dog_name);
+    data.append('breed', formData.breed);
+    data.append('anecdote', formData.anecdote);
+    data.append('image', formData.image); // Append the image file to the form data
+    data.append('alt_text', formData.alt_text);
+
+    axios
+      .post('http://localhost:8080/dogs', data, {
+        headers: {
+          'Content-Type': 'multipart/form-data', // Set proper headers for file upload
+        },
+      })
       .then((response) => {
         console.log('Data sent successfully!', response.data);
-
+        // Clear the form after successful submission
+        setFormData({
+          dog_name: '',
+          breed: '',
+          anecdote: '',
+          image: null,
+          alt_text: '',
+        });
       })
       .catch((error) => {
         console.error('Error while sending data:', error);
       });
-
-       // Clear the form after successful submission
-       setFormData({
-        dog_name: '',
-        breed: '',
-        anecdote: '',
-        image: //'This will later be a path to the image'
-        '',
-      });
-}
+  };
 
   return (
     <form className={styles.dogForm} onSubmit={handleSubmit}>
@@ -74,12 +87,12 @@ const DogForm = () => {
       />
       <label htmlFor="image">Ladda upp en bild av din hund</label>
       <input
-        type="text"
+        type="file"
         id="image"
         name="image"
-        value={formData.image}
+        accept="image/*" 
         onChange={handleChange}
-        placeholder="x"
+        
         //required
       />
       <label htmlFor="alt_text">Beskriv med max 7 ord vad din hund gör på bilden</label>
