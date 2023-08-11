@@ -2,14 +2,39 @@ import Image from 'next/image';
 import Layout from '../components/Layout/Layout';
 import styles from './startpage.module.scss';
 import DogImages from '../components/DogImages/DogImages';
+import axios from 'axios';
 
-export default function Home({ dogsData }) {
+
+export default function Home({ dogs }) {
+  console.log('Dogs:', dogs);
+
   return (
     <Layout title="Startsida" description="Gissa vilken hundras">
-      <DogImages dogs={dogsData} />
+      <DogImages dogs={dogs} />
     </Layout>
   );
 }
+
+export async function getServerSideProps() {
+  try {
+    const response = await axios.get('http://localhost:8080/dogs');
+    const dogs = response.data;
+    return {
+      props: { dogs },
+    };
+  } catch (error) {
+    console.error('Error while fetching data:', error);
+    return {
+      props: { dogs: [] },
+    };
+  }
+}
+
+
+
+
+
+
 // import Image from 'next/image';
 // import Layout from '../components/Layout/Layout';
 // import styles from './startpage.module.scss';

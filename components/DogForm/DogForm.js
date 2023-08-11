@@ -165,6 +165,12 @@ const DogForm = () => {
         alt_text: '',
       });
 
+            // Clear the file input value
+        const fileInput = document.getElementById('image');
+        if (fileInput) {
+          fileInput.value = '';
+        }
+
       // Update the user's data with the new dogIds array
       if (user) {
         axios.put(`http://localhost:8080/users/${user.id}/addDog/${newDogId}`, null, {
