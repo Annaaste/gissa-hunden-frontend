@@ -34,8 +34,11 @@ const Navbar = () => {
       {showLoginNotification && (
         <p className={styles.loginNotification}>Du måste logga in för att kunna lägga till en hund!</p>
       )}
-      <button className={styles.loginButton} onClick={handleLogout}>Logga ut</button>
-      <Link href='/login' className={styles.loginButton}>Logga in / Skapa konto</Link>
+      {isAuthenticated ? (
+        <button className={styles.loginButton} onClick={handleLogout}>Logga ut</button>
+      ) : (
+        <Link href='/login' className={styles.loginButton}>Logga in / Skapa konto</Link>
+      )}
     </div>
   )
 }
