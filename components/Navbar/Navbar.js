@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import styles from './Navbar.module.scss'
 import { useEffect, useState } from 'react';
-
+import {IoMdImages} from 'react-icons/io';
 
 const Navbar = () => {
 
@@ -29,7 +29,7 @@ const Navbar = () => {
   return (
     <div className={styles.navbarContainer}>
        <Link href='/add-dog' className={styles.addDogLink} onClick={handleAddDogClick}>
-        Lägg till hund
+       <IoMdImages /> Lägg till hund
       </Link>
       {showLoginNotification && (
         <p className={styles.loginNotification}>Du måste logga in för att kunna lägga till en hund!</p>
