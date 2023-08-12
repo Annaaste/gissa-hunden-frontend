@@ -1,0 +1,50 @@
+@import 'variables.scss';
+
+.loginContainer {
+  max-width: 50rem;
+  margin: 0 auto;
+  padding: 2rem;
+  border: 0.1rem solid #ccc;
+  border-radius: 0.8rem;
+  background-color: #fff;
+  box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.1);
+}
+
+.error {
+  text-align: center;
+  color: orangered;
+  padding: 3rem;
+}
+
+.loginTitle {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.loginInput {
+  width: 100%;
+  padding: 1rem 0;
+  margin-bottom: 1.5rem;
+  border: 0.1rem solid #ccc;
+  border-radius: 0.4rem;
+
+  &::placeholder {
+    padding-left: 0.5rem; 
+  }
+}
+
+.loginButton {
+  width: 100%;
+  padding: 1rem;
+  background-color: $color1;
+  color: #fff;
+  border: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  margin-bottom: 3rem;
+
+  &:hover {
+    background-color:$hover;
+  }
+}
