@@ -1,9 +1,24 @@
 @import 'variables.scss';
 
 .navbarContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 3rem 2rem 3rem 1rem;
   background-color: $color1;
-  text-align: right;;
+
+  .addDogLink {
+    margin-right: auto;
+    color: $white;
+    font-weight: 400;
+    margin-left: 1.2rem;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s ease-in-out;
+
+    &:hover {
+      border-color: $white;
+    }
+  }
 
   .loginButton {
     padding: 0.6rem 1.2rem;
@@ -11,5 +26,12 @@
     color: $white;
     border: 2px solid $white;
     border-radius: 0.5rem;
+    margin-left: 1.2rem;
   }
 }
+
+
+
+
+
+
