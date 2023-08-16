@@ -2,6 +2,10 @@
   margin: 2rem 3rem;
 
   button {
-    margin-bottom: 4rem
+    margin-bottom: 4rem;
+
+    &:hover {
+      text-decoration: underline;
   }
+ }
 }

@@ -8,6 +8,7 @@ import { useEffect } from 'react';
 const DogForm = () => {
 
   const [user, setUser] = useState(null);
+  const [showNotification, setShowNotification] = useState(false);
 
   useEffect(() => {
     const token = localStorage.getItem('jwtToken');
@@ -58,71 +59,6 @@ const DogForm = () => {
       data.append('user_id', user.id); // Append the user's ID
     }
 
-  // //const [user, setUser] = useState(null);
-
-  // useEffect(() => {
-    
-  //   // Retrieve the JWT token from localStorage
-  //   const token = localStorage.getItem('jwtToken');
-
-  //   // Decode the JWT token and get user information
-  //   const user = getUserFromToken(token);
-  //   console.log('Logged-in user:', user);
-
-    
-  //   const userEmail = user.sub;
-    
-
-  //   axios.get(`http://localhost:8080/users/${userEmail}`)
-  //     .then(response => {
-  //       console.log( 'User data: ',response.data);
-  //       (response.data);
-  //     })
-  //     .catch(error => {
-  //       console.error('Error fetching user:', error);
-  //     });
-  // }, []);
-
-     
-
-  //   // const userId = getUserIdFromToken(token);
-  //   // console.log('User ID from token:', userId);
-  
-
-  // const [formData, setFormData] = useState({
-  //   dog_name: '',
-  //   breed: '',
-  //   anecdote: '',
-  //   image: null, // Changed to null, will hold the selected image file
-  //   alt_text: '',
-  // });
-
-  // const handleChange = (e) => {
-  //   if (e.target.name === 'image') {
-  //     // For image input, use the selected file instead of the value
-  //     setFormData({ ...formData, [e.target.name]: e.target.files[0] });
-  //   } else {
-  //     setFormData({ ...formData, [e.target.name]: e.target.value });
-  //   }
-  // };
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   console.log('Innehållet i formData är: ', formData);
-
-  //   const token = localStorage.getItem('jwtToken');
-  //   // const userId = getUserIdFromToken(token);
-
-  //   //const token = localStorage.getItem('jwtToken');
-
-  //   // Send the form data to the backend API using FormData (which supports file uploads)
-  //   const data = new FormData();
-  //   data.append('dog_name', formData.dog_name);
-  //   data.append('breed', formData.breed);
-  //   data.append('anecdote', formData.anecdote);
-  //   data.append('image', formData.image); // Append the image file to the form data
-  //   data.append('alt_text', formData.alt_text);
-    
 
     axios
       .post('http://localhost:8080/dogs', data, {
@@ -134,19 +70,7 @@ const DogForm = () => {
 
       .then((response) => {
         console.log('Data sent successfully!', response.data);
-      //   // Clear the form after successful submission
-      //   setFormData({
-      //     dog_name: '',
-      //     breed: '',
-      //     anecdote: '',
-      //     image: null,
-      //     alt_text: '',
-      //   });
-      // })
-      // .catch((error) => {
-      //   console.error('Error while sending data:', error);
-      // });
-           // Get the newly created dog's ID from the response
+        setShowNotification(true);
       const newDogId = response.data.id;
 
       // Update the user's dogIds array with the newDogId
@@ -244,6 +168,13 @@ const DogForm = () => {
         required
       />
       <button type="submit">Skicka in</button>
+
+      {showNotification && (
+      <div className={styles.notification}>
+        <p>Din hund har lagts till i spelet! Lägg till fler hundar eller gå tillbaka till spelet.</p>
+        <button onClick={() => setShowNotification(false)}>Stäng</button>
+      </div>
+    )}
     </form>
 )}
 
