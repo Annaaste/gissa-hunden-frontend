@@ -4,7 +4,7 @@ const Footer = () => {
 
   return (
     <div className={styles.footerContainer}>
-      <p>Footer</p>
+      
     </div>
   )
 }
