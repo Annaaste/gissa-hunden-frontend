@@ -2,11 +2,15 @@ import Link from 'next/link'
 import styles from './Navbar.module.scss'
 import { useEffect, useState } from 'react';
 import {IoMdImages} from 'react-icons/io';
+import { useRouter } from 'next/router';
+
 
 const Navbar = () => {
 
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [showLoginNotification, setShowLoginNotification] = useState(false);
+
+  const router = useRouter();
 
   useEffect(() => {
     const token = localStorage.getItem('jwtToken');
@@ -23,7 +27,7 @@ const Navbar = () => {
   const handleLogout = () => {
     localStorage.removeItem('jwtToken');
     setIsAuthenticated(false);
-    alert('Du är nu utloggad!');
+    router.push('/');
   };
 
   return (

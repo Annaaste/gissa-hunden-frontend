@@ -1,22 +1,7 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
 import styles from './Highscore.module.scss'
 
 const Highscore = ({ highscores }) => {
-  // const [highscores, setHighscores] = useState([]);
-
-  // useEffect(() => {
-  //   fetchHighscores();
-  // }, []);
-
-  // const fetchHighscores = async () => {
-  //   try {
-  //     const response = await axios.get('http://localhost:8080/highscores/top');
-  //     setHighscores(response.data);
-  //   } catch (error) {
-  //     console.error('Error while fetching highscores:', error);
-  //   }
-  // };
+ 
 
   return (
     <div className={styles.highscoreBox}>

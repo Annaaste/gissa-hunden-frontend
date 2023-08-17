@@ -117,7 +117,15 @@ const DogForm = () => {
   };
 
   return (
+    <div>
+      <h2>Här kan du ladda upp en hund till tävlingen!</h2>
     <form className={styles.dogForm} onSubmit={handleSubmit}>
+      {showNotification && (
+      <div className={styles.notification}>
+        <p>Din hund har lagts till i spelet! Lägg till fler hundar eller gå tillbaka till spelet.</p>
+        <button onClick={() => setShowNotification(false)}>Stäng</button>
+      </div>
+    )}
       <label htmlFor="dog_name">Vad heter din hund?</label>
       <input
         type="text"
@@ -135,7 +143,7 @@ const DogForm = () => {
         name="breed"
         value={formData.breed}
         onChange={handleChange}
-        placeholder="Golden Retriever"
+        placeholder="Border Collie"
         required
       />
       <label htmlFor="anecdote">Berätta något kort om hunden</label>
@@ -168,14 +176,8 @@ const DogForm = () => {
         required
       />
       <button type="submit">Skicka in</button>
-
-      {showNotification && (
-      <div className={styles.notification}>
-        <p>Din hund har lagts till i spelet! Lägg till fler hundar eller gå tillbaka till spelet.</p>
-        <button onClick={() => setShowNotification(false)}>Stäng</button>
-      </div>
-    )}
     </form>
+  </div>
 )}
 
 export default DogForm

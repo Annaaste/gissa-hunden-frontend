@@ -3,9 +3,9 @@
 .resultContainer {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start; /* Align input section to top */
-  flex-wrap: wrap; /* Allow sections to wrap if needed */
-  gap: 2rem; /* Add some spacing between sections */
+  align-items: flex-start; 
+  flex-wrap: wrap;
+  gap: 2rem;
 }
 
 .resultSection {

@@ -56,44 +56,6 @@ const DogImages = ({ dogs }) => {
     setCurrentDogIndex((prevIndex) => prevIndex + 1);
   };
 
-  // const handleSaveHighscore = async () => {
-  //   try {
-  //     const intCorrectGuessCount = parseInt(correctGuessCount);
-
-  //     if (playerName.trim() === '') {
-  //       console.log('Please enter a player name.');
-  //       return;
-  //     }
-
-  //     const response = await axios.post('http://localhost:8080/highscores', {
-  //       playerName: playerName,
-  //       score: intCorrectGuessCount
-  //     }, {
-  //       headers: {
-  //         'Content-Type': 'application/json'
-  //       }
-  //     });
-      
-  //     console.log('Highscore saved successfully:', response.data);
-  //     fetchHighscores();
-  //   } catch (error) {
-  //     console.error('Error while saving highscore:', error);
-  //   }
-
-    
-  
-  //   try {
-  //     await axios.post('http://localhost:8080/save', {
-  //       playerName: playerName,
-  //       score: correctGuessCount,
-  //     });
-  //     // Refresh the highscores after saving
-  //     fetchHighscores();
-  //   } catch (error) {
-  //     console.error('Error while saving highscore:', error);
-  //   }
-  // };
-
 
   const handleSubmitGuess = () => {
     const currentDog = dogs[currentDogIndex];
