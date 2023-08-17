@@ -34,27 +34,25 @@ export default function Login() {
     <h1>Gissa Hunden</h1>
   </div>
     <div className={styles.loginContainer}>
-      <h2 className={styles.loginTitle}>Inloggning</h2>
+      <h2>Inloggning</h2>
       {error && <div className={styles.error}>{error}</div>}
-      <input
-        type="email"
-        placeholder="Email"
-        className={styles.loginInput}
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        className={styles.loginInput}
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button className={styles.loginButton} onClick={handleLogin}>
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <input
+          type="password"
+          placeholder="Lösenord"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+      <button onClick={handleLogin}>
         Logga in
       </button>
 
-      <div>
+      <div className={styles.signupLink}>
         <p>Ny på Gissa Hunden?</p>
         <Link href='/signup'>Skapa konto här!</Link>
       </div>
