@@ -7,7 +7,7 @@ export default async function handler(req, res) {
 
   try {
     const response = await axios.post('http://localhost:8080/api/v1/auth/signup', req.body);
-    const token = response.data.token; // Assuming your server returns the JWT
+    const token = response.data.token;
     res.status(200).json({ token });
   } catch (error) {
     res.status(400).json({ message: 'Signup failed' });

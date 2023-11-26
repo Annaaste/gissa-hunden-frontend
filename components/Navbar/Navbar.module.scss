@@ -28,6 +28,18 @@
     border-radius: 0.5rem;
     margin-left: 1.2rem;
   }
+
+  .flagsContainer {
+    display: flex;
+    gap: 0.5rem;
+    padding-left: 0.5rem;
+  }
+  
+  .flag {
+    width: 25px;
+    height: 20px;
+    cursor: pointer;
+  }
 }
 
 

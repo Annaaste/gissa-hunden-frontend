@@ -1,0 +1,59 @@
+{
+  "submit": "Skicka in",
+  "title": "Gissa Hunden",
+  "hello": "Hej på dig lilla hunden",
+  "addDogLinkTitle": "Lägg till hund",
+  "loginNotificationText": "Du måste logga in för att kunna lägga till en hund!",
+  "logoutButtonText": "Logga ut",
+  "loginLinkText": "Logga in / Skapa konto",
+  "next": "Nästa bild",
+  "highscoreTitle": "Top 5 på Gissa Hunden",
+  "rankColumn": "Rank",
+  "nameColumn": "Namn",
+  "scoreColumn": "Poäng",
+  "close": "Stäng",
+  "loginTitle": "Inloggning",
+  "login": "Logga in",
+  "newUser": "Ny på Gissa Hunden?",
+  "createAccountLinkText": "Skapa konto här!",
+  "createAccount": "Skapa konto",
+  "guessPlaceholder": "Skriv in hundras här!",
+  "playGame": "Tillbaka till spelet",
+  "password": "Lösenord",
+  "lastName": "Efternamn",
+  
+  "resultsPage": {
+    "title": "Bra gjort! Här är ditt resultat",
+    "correctGuess": "Antal rätt: {{correctGuessCount}} av {{currentDogIndex}}",
+    "playAgain": "Spela igen!",
+    "incorrectGuesses": {
+      "title": "Felaktiga gissningar:",
+      "userGuess": "Du gissade: {{userGuess}}",
+      "correctAnswer": "Rätt svar: {{correctAnswer}}"
+    },
+    "sendResult": {
+      "title": "Här kan du skicka in ditt resultat",
+      "placeholder": "Skriv in spelnamn"
+    }
+  },
+
+  "dogForm": {
+    "title": "Här kan du ladda upp en hund till tävlingen!",
+    "notification": "Din hund har lagts till i spelet! Lägg till fler hundar eller gå tillbaka till spelet",
+
+    "labels": {
+      "dogName": "Vad heter din hund?",
+      "breed": "Vilken ras är hunden?",
+      "anecdote": "Berätta något kort om hunden",
+      "image": "Ladda upp en bild av din hund",
+      "altText": "Beskriv med max 7 ord vad din hund gör på bilden"
+    },
+
+    "placeholder": {
+      "dogName": "Lassie",
+      "breed": "Border Collie",
+      "anecdote": "En gång när vi... Han/hon älskar att...",
+      "altText": "En hund ligger i gräset"
+    }
+  }
+}

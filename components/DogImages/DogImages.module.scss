@@ -9,7 +9,7 @@
 }
 
 .resultSection {
-  flex: 1; /* Take up available space */
+  flex: 1;
   background-color: $color3;
   padding: 2rem;
   border-radius: 0.8rem;
@@ -30,6 +30,7 @@
     border: 1px solid $color1;
     padding: 0.5rem;
     border-radius: 0.50rem;
+    color: black;
   }
 
   button {
@@ -41,6 +42,27 @@
     &:hover {
       background-color: $hover;
     }
+  }
+}
+
+.backToTop {
+  position: fixed;
+  bottom: 3rem;
+  right: 3rem;
+  background-color: $color1;
+  color: white; 
+  border: none;
+  border-radius: 50%;
+  width: 5rem;
+  height: 5rem;
+  font-size: 3rem;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  z-index: 9999;
+  
+  &:hover {
+    background-color: $hover;
+    transform: scale(1.1); 
   }
 }
 
@@ -60,16 +82,26 @@
   align-items: center;
 }
 
-.guessTheBreedContainer {
-  width: 60rem;
-  height: 40rem;
-  overflow: hidden;
-  padding: 2rem;
-  text-align: center;
-  background-color: $color3;
-  border-radius: 0.8rem;
-}
+ .guessTheBreedContainer {
+   width: 60rem;
+   height: 40rem;
+   overflow: hidden;
+   padding: 2rem;
+   text-align: center;
+   background-color: $color3;
+   border-radius: 0.8rem;
 
+   @media (max-width: 700px) {
+    max-width: 30rem;
+    max-height: 20rem;
+  }
+ }
+
+.responsiveImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 .inputContainer {
   display: flex;
   justify-content: center;
@@ -82,6 +114,7 @@
   padding: 0.5rem;
   border-radius: 0.50rem;
   margin-right: 1rem;
+  color: black;
 }
 
 .playAgain,

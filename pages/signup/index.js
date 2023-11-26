@@ -2,6 +2,8 @@ import { useState } from 'react';
 import axios from 'axios';
 import styles from '../login/login.module.scss';
 import { useRouter } from 'next/router';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useTranslation } from 'next-i18next'
 
 
 export default function SignupPage() {
@@ -13,6 +15,7 @@ export default function SignupPage() {
   const [success, setSuccess] = useState(false);
   
   const router = useRouter();
+  const { t } = useTranslation();
 
 
   const handleSignup = async (e) => {
@@ -41,22 +44,22 @@ export default function SignupPage() {
   return (
     <>
     <div>
-    <h1>Gissa Hunden</h1>
+    <h1>{t('title')}</h1>
     </div>
     <div className={styles.loginContainer}>
-      <h2  >Skapa konto</h2>
+      <h2>{t('createAccount')}</h2>
       {error && <div className={styles.error}>{error}</div>}
       <form onSubmit={handleSignup}>
         <div >
         <input 
           type="text" 
-          placeholder="Namn" 
+          placeholder={t("nameColumn")} 
           value={firstName} 
           onChange={(e) => setFirstName(e.target.value)}
         />
         <input 
           type="text" 
-          placeholder="Efternamn" 
+          placeholder={t("lastName")}
           value={lastName} 
           onChange={(e) => setLastName(e.target.value)} 
         />
@@ -68,15 +71,26 @@ export default function SignupPage() {
         />
         <input 
           type="password" 
-          placeholder="Lösenord" 
+          placeholder={t("password")} 
           value={password} 
           onChange={(e) => setPassword(e.target.value)} 
         />
         </div>
-        <button type="submit">Skapa konto</button>
+        <button type="submit">{t('createAccount')}</button>
       </form>
     </div>
     </>
   );
+}
+
+export async function getServerSideProps(context) {
+  const { locale } = context;
+  const translations = await serverSideTranslations(locale, ['common']);
+
+  return {
+    props: {
+      ...translations,
+    },
+  };
 }
 

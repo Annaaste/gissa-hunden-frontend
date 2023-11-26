@@ -1,0 +1,57 @@
+{
+  "submit": "Submit",
+  "title": "Guess The Dog",
+  "hello": "Hej på dig lilla hunden",
+  "addDogLinkTitle": "Add dog",
+  "loginNotificationText": "You must login to be able to add your dog!",
+  "logoutButtonText": "Logout",
+  "loginLinkText": "Login / Create account",
+  "next": "Next",
+  "highscoreTitle": "Top 5",
+  "rankColumn": "Rank",
+  "nameColumn": "Name",
+  "scoreColumn": "Points",
+  "close": "Close",
+  "loginTitle": "Login",
+  "login": "Login",
+  "newUser": "New at Guess The Dog?",
+  "createAccountLinkText": "Create account here!",
+  "createAccount": "Create account",
+  "guessPlaceholder": "Enter guess here!",
+  "playGame": "Play game",
+  "password": "Password",
+  "lastName": "lastName",
+  
+  "resultsPage": {
+    "title": "Good job! Here is your result",
+    "correctGuess": "Correct answers: {{correctGuessCount}} of {{currentDogIndex}}",
+    "playAgain": "Play again!",
+    "incorrectGuesses": {
+      "title": "Incorrect answers:",
+      "userGuess": "You answered: {{userGuess}}",
+      "correctAnswer": "Right answer: {{correctAnswer}}"
+    },
+    "sendResult": {
+      "title": "Send in your result",
+      "placeholder": "Write playername"
+    }
+  },
+
+  "dogForm": {
+    "title": "Add your own dogimage here!",
+    "notification": "Your dog has been added to the game! Add more dogimages or play game",
+    "labels": {
+      "dogName": "Dog name?",
+      "breed": "Breed?",
+      "anecdote": "Write a short comment about your dog",
+      "image": "Upload your dogimage",
+      "altText": "Describe in 7 words atmost what your dog is doing"
+    },
+    "placeholder": {
+      "dogName": "Lassie",
+      "breed": "Border Collie",
+      "anecdote": "One time... It loves ...",
+      "altText": "Dog lies in the grass"
+    }
+  }
+}

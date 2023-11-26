@@ -3,6 +3,8 @@ import axios from 'axios';
 import styles from './login.module.scss';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useTranslation } from 'next-i18next'
 
 export default function Login() {
   const [email, setEmail] = useState('');
@@ -11,6 +13,8 @@ export default function Login() {
   const [success, setSuccess] = useState(false);
 
   const router = useRouter();
+  const { t } = useTranslation();
+
 
   const handleLogin = async () => {
     try {
@@ -31,10 +35,10 @@ export default function Login() {
   return (
   <>
   <div>
-    <h1>Gissa Hunden</h1>
+    <h1>{t('title')}</h1>
   </div>
     <div className={styles.loginContainer}>
-      <h2>Inloggning</h2>
+      <h2>{t('loginTitle')}</h2>
       {error && <div className={styles.error}>{error}</div>}
         <input
           type="email"
@@ -44,19 +48,30 @@ export default function Login() {
         />
         <input
           type="password"
-          placeholder="Lösenord"
+          placeholder={t("password")}
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
       <button onClick={handleLogin}>
-        Logga in
+        {t('login')}
       </button>
 
       <div className={styles.signupLink}>
-        <p>Ny på Gissa Hunden?</p>
-        <Link href='/signup'>Skapa konto här!</Link>
+        <p>{t('newUser')}</p>
+        <Link href='/signup'>{t('createAccountLinkText')}</Link>
       </div>
     </div>
     </>
   );
+}
+
+export async function getServerSideProps(context) {
+  const { locale } = context;
+  const translations = await serverSideTranslations(locale, ['common']);
+
+  return {
+    props: {
+      ...translations,
+    },
+  };
 }

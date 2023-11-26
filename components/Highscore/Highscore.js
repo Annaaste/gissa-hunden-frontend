@@ -1,17 +1,20 @@
 import styles from './Highscore.module.scss'
+import { useTranslation } from 'next-i18next'
+
 
 const Highscore = ({ highscores }) => {
  
+  const { t } = useTranslation();
 
   return (
     <div className={styles.highscoreBox}>
-      <h3>Top 5 på Gissa Hunden</h3>
+      <h3>{t('highscoreTitle')}</h3>
       <table >
         <thead>
           <tr>
-            <th>Rank</th>
-            <th>Namn</th>
-            <th>Poäng</th>
+            <th>{t('rankColumn')}</th>
+            <th>{t('nameColumn')}</th>
+            <th>{t('scoreColumn')}</th>
           </tr>
         </thead>
         <tbody>

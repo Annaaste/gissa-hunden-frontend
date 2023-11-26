@@ -3,9 +3,13 @@ import { useState } from 'react';
 import styles from './DogForm.module.scss';
 import { getUserFromToken } from '../../utils/authUtils';
 import { useEffect } from 'react';
+import { useTranslation } from 'next-i18next';
+
 
 
 const DogForm = () => {
+
+  const { t } = useTranslation();
 
   const [user, setUser] = useState(null);
   const [showNotification, setShowNotification] = useState(false);
@@ -118,44 +122,44 @@ const DogForm = () => {
 
   return (
     <div>
-      <h2>Här kan du ladda upp en hund till tävlingen!</h2>
+      <h2>{t('dogForm.title')}</h2>
     <form className={styles.dogForm} onSubmit={handleSubmit}>
       {showNotification && (
       <div className={styles.notification}>
-        <p>Din hund har lagts till i spelet! Lägg till fler hundar eller gå tillbaka till spelet.</p>
-        <button onClick={() => setShowNotification(false)}>Stäng</button>
+        <p>{t('dogForm.notification')}</p>
+        <button onClick={() => setShowNotification(false)}>{t('close')}</button>
       </div>
     )}
-      <label htmlFor="dog_name">Vad heter din hund?</label>
+      <label htmlFor="dog_name">{t('dogForm.labels.dogName')}</label>
       <input
         type="text"
         id="dog_name"
         name="dog_name"
         value={formData.dog_name}
         onChange={handleChange}
-        placeholder="Lassie"
+        placeholder={t('dogForm.placeholder.dogName')}
         required
       />
-      <label htmlFor="breed">Vilken ras är hunden?</label>
+      <label htmlFor="breed">{t('dogForm.labels.breed')}</label>
       <input
         type="text"
         id="breed"
         name="breed"
         value={formData.breed}
         onChange={handleChange}
-        placeholder="Border Collie"
+        placeholder={t('dogForm.placeholder.breed')}
         required
       />
-      <label htmlFor="anecdote">Berätta något kort om hunden</label>
+      <label htmlFor="anecdote">{t('dogForm.labels.anecdote')}</label>
       <textarea
         id="anecdote"
         name="anecdote"
         value={formData.anecdote}
         onChange={handleChange}
-        placeholder="En gång när vi... Han/hon älskar att... "
+        placeholder={t('dogForm.placeholder.anecdote')}
         required
       />
-      <label htmlFor="image">Ladda upp en bild av din hund</label>
+      <label htmlFor="image">{t('dogForm.labels.image')}</label>
       <input
         type="file"
         id="image"
@@ -165,17 +169,17 @@ const DogForm = () => {
         
         //required
       />
-      <label htmlFor="alt_text">Beskriv med max 7 ord vad din hund gör på bilden</label>
+      <label htmlFor="alt_text">{t('dogForm.labels.altText')}</label>
       <input
         type="text"
         id="alt_text"
         name="alt_text"
         value={formData.alt_text}
         onChange={handleChange}
-        placeholder="En hund ligger i gräset"
+        placeholder={t('dogForm.placeholder.altText')}
         required
       />
-      <button type="submit">Skicka in</button>
+      <button type="submit">{t("submit")}</button>
     </form>
   </div>
 )}

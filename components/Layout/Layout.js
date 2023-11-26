@@ -1,17 +1,21 @@
 import Head from 'next/head'
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
-
 import styles from './Layout.module.scss'
+import { useTranslation } from 'next-i18next'
 
-const Layout = ({ children, description, title, }) => {
+
+const Layout = ({ children, description, title }) => {
+
+  const { t } = useTranslation();
+
   return ( 
     <>
       <Head>
         <meta charSet="UTF-8" />
         {title ? (
           <>
-            <title>{title} | Gissa Hunden</title>
+            <title>{`${title} | Gissa Hunden`}</title>
             <meta 
               name="description"
               content={description}
@@ -19,7 +23,7 @@ const Layout = ({ children, description, title, }) => {
           </>
           ) : (
           <>
-            <title>Gissa hunden</title>
+            <title>{t('title')}</title>
             <meta 
               name="description"
               content="Ladda upp en bild på din egen hund eller gissa bland andras! Hur många raser klarar du?"
@@ -42,5 +46,5 @@ const Layout = ({ children, description, title, }) => {
     </>
    );
 }
- 
+
 export default Layout;
